@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TechStackService, TodoService } from '../shared-services';
+import { TechStackService, TodoService } from '../services';
 import { TodoModel } from '../models/todo-model';
 import { ListOfTodosComponent } from './todo-list';
 // not used in the component, but needed in the template for validation

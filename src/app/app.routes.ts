@@ -1,10 +1,7 @@
-import { provideRouter, RouterConfig } from '@angular/router';
-import { TodoComponent } from './todo';
+import { Routes, RouterModule } from '@angular/router';
 
-export const routes: RouterConfig = [
-  { path: '', component: TodoComponent }
+export const routes: Routes = [
+  { path: '', redirectTo: 'todos', pathMatch: 'full'}
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+export const routing = RouterModule.forRoot(routes);

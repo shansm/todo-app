@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TodoService } from '../shared-services';
+import { TodoService } from '../services';
 import { TodoModel } from '../models/todo-model';
 
 @Component({

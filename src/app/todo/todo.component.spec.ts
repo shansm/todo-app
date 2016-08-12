@@ -10,7 +10,7 @@ import { provide } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TodoModel } from '../models/todo-model';
 import { TodoComponent } from './todo.component';
-import { TechStackService, TodoService } from '../shared-services';
+import { TechStackService, TodoService } from '../services';
 import { BaseRequestOptions, Http, Response, ResponseOptions, Headers } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
