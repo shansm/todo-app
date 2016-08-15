@@ -8,9 +8,9 @@ import {
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TodoModel } from '../models/todo-model';
-import { TodoComponent } from './todo.component';
-import { TechStackService, TodoService } from '../services';
+import { TodoModel } from '../../models/todo-model';
+import { TodoComponent } from '../todo.component';
+import { TechStackService, TodoService } from '../../services';
 import { BaseRequestOptions, Http, Response, ResponseOptions, Headers } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
@@ -27,9 +27,10 @@ class MockTechStackService {
 
 class MockTodoService {
   getTodos: () => Array<TodoModel>;
+  deleteTodos: () => Array<TodoModel>;
 }
 
-describe('TodoComponent', () => {
+describe('Todo List Component', () => {
   beforeEach(() => {
     addProviders([TodoComponent, TechStackService, TodoService, BaseRequestOptions, MockBackend,
       provide(Http, mockHttpProvider)]),
@@ -37,16 +38,18 @@ describe('TodoComponent', () => {
       provide(TodoService, {useClass: MockTodoService});
   });
 
-   it('should call the getAllUsers method from the UserService',
+   it('should call the deleteTodo + getAllUsers method from the UserService',
     inject([TestComponentBuilder, TechStackService, TodoService],
       fakeAsync((tcb: TestComponentBuilder, mockTechStackService: TechStackService, mockTodoService: TodoService) => {
       spyOn(mockTodoService, 'getTodos');
+      spyOn(mockTodoService, 'deleteTodo');
       tcb
         .createAsync(TodoComponent)
         .then((fixture: ComponentFixture<any>) => {
           tick();
           fixture.detectChanges();
           expect(mockTodoService.getTodos).toHaveBeenCalled();
+          expect(mockTodoService.deleteTodo).toHaveBeenCalled();
         });
     }))
   );

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TodoService } from '../services';
-import { TodoModel } from '../models/todo-model';
+import { TodoService } from '../../services';
+import { TodoModel } from '../../models';
 
 @Component({
 
   selector: 'my-list-of-todos',
-  styleUrls: ['./todo.component.scss'],
+  styleUrls: ['../todo.component.scss'],
   template: `
     <ul *ngIf='todos.length'>
       <li *ngFor='let todo of todos; let i = index'>

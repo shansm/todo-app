@@ -1,13 +1,15 @@
-describe('Home', function () {
+describe('todo component', function () {
 
   beforeEach(function () {
     browser.get('/');
   });
 
-  it('should have <my-home>', function () {
-    var home = element(by.css('my-app my-home'));
-    expect(home.isPresent()).toEqual(true);
-    expect(home.getText()).toEqual("Home Works!");
+  it('should have .add-app', function () {
+    var addTodos = element(by.css('.add-todo'));
+    expect(addTodos.isPresent()).toEqual(true);
+  });
+
+  it('should allow you to add a todo item', function () {
   });
 
 });

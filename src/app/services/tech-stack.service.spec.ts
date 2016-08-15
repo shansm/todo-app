@@ -10,7 +10,8 @@ describe('Tech Stack Service', () => {
     addProviders([TechStackService]);
   });
 
-  it('technologies array should contain the technologies used in the app', inject([TechStackService], (techStackService: TechStackService) => {
+  it('technologies array should contain the technologies used in the app',
+    inject([TechStackService], (techStackService: TechStackService) => {
     expect(techStackService.technologies).toContain('Angular');
   }));
 });
