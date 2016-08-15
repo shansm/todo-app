@@ -8,7 +8,7 @@ import {
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TodoModel } from '../../models/todo-model';
+import { TodoModel } from '../../models';
 import { TodoComponent } from '../todo.component';
 import { TechStackService, TodoService } from '../../services';
 import { BaseRequestOptions, Http, Response, ResponseOptions, Headers } from '@angular/http';

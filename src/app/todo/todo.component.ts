@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TechStackService, TodoService } from '../services';
-import { TodoModel } from '../models/todo-model';
+import { TodoModel } from '../models';
 import { ListOfTodosComponent } from './list/todo-list';
 // not used in the component, but needed in the template for validation
 import { NgForm } from '@angular/forms';
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Rx';
           <h1>Add a Todo Item</h1>
           <form *ngIf="active" (submit)="onSubmit()" #myTodoForm="ngForm">
             <div class="form-group">
-              <label for="item">Name</label>
+              <label for="item">Item:</label>
               <input type="text" required="" [(ngModel)]="model.item" name="item" #item="ngModel" class="form-control"/>
               <div [hidden]="item.valid || item.pristine" class="alert alert-danger">Item is required</div>
             </div>

@@ -7,9 +7,9 @@ import { TodoModel } from '../../models';
   selector: 'my-list-of-todos',
   styleUrls: ['../todo.component.scss'],
   template: `
-    <ul *ngIf='todos.length'>
+    <ul *ngIf='todos.length' class="todos-list">
       <li *ngFor='let todo of todos; let i = index'>
-        <p [class.strike-thru]="todo.completed">{{todo.item}} {{todo.id}}
+        <p [class.strike-thru]="todo.completed">{{todo.item}}
           <button type="button" class="close" aria-label="Close" (click)='deleteTodo(todo.id, i)'>
             <span aria-hidden="true">&times;</span>
           </button>

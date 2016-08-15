@@ -10,6 +10,7 @@ describe('todo component', function () {
   });
 
   it('should allow you to add a todo item', function () {
+    //TODO - mocking is currently not supported. :(
   });
 
 });
