@@ -17,7 +17,9 @@ Install all dependencies with:
 npm i
 ```
 
-you can now run the app with:
+Now you'll need a backend API. I recommend [json-server](https://github.com/typicode/json-server) along with [todos-list](https://github.com/shansm/todos-list).
+
+Once the backend is up and running you can now run this app with:
 
 ```bash
 npm start
