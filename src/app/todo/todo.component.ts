@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TechStackService, TodoService } from '../services';
 import { TodoModel } from '../models';
 import { ListOfTodosComponent } from './list/todo-list';
-// not used in the component, but needed in the template for validation
-import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
