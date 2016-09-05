@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TechStackService, TodoService } from '../services';
 import { TodoModel } from '../models';
-import { ListOfTodosComponent } from './list/todo-list';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
@@ -30,9 +29,7 @@ import { Observable } from 'rxjs/Rx';
       </div>
     </div>
   `,
-  styleUrls: ['./todo.component.scss'],
-  directives: [ListOfTodosComponent]
-
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
 
