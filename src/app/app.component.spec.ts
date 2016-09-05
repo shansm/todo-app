@@ -13,7 +13,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       imports:      [SharedModule, routing, HttpModule, JsonpModule],
-    });;
+    });
   });
 
   it('should create the App compnent', async(() => {

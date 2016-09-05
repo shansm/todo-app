@@ -1,31 +1,33 @@
-import {
-  inject,
-  addProviders,
-  fakeAsync,
-  tick
-} from '@angular/core/testing';
-import { BaseRequestOptions, Http, Response, ResponseOptions, Headers } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
+import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { TodoService } from './todo.service';
+import { tick, async, inject, TestBed, fakeAsync } from '@angular/core/testing';
+import { HttpModule, JsonpModule } from '@angular/http';
 
-describe('Todo Service', () => {
+describe('TodoService', () => {
   beforeEach(() => {
-    addProviders([TodoService, BaseRequestOptions, MockBackend,
-      {
-        provide: Http,
-        deps: [MockBackend, BaseRequestOptions],
-        useFactory: function useFactory(backend, defaultOptions) {
+
+    TestBed.configureTestingModule({
+      imports: [HttpModule],
+      providers: [
+        {
+          provide: Http, useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
           return new Http(backend, defaultOptions);
-        }
-      }]);
+        }, deps: [MockBackend, BaseRequestOptions]
+        },
+        {provide: TodoService, useClass: TodoService},
+        {provide: MockBackend, useClass: MockBackend},
+        {provide: BaseRequestOptions, useClass: BaseRequestOptions}
+      ]
+    });
   });
 
-  xit('should have a base URL', inject([TodoService], (todoService: TodoService) => {
+  it('should have a base URL', inject([TodoService], (todoService: TodoService) => {
     expect(todoService.baseURL).toBe('http://localhost:3000/todos');
   }));
 
   xit('should have a method to get all Todos',
-    inject([TodoService, MockBackend], fakeAsync((todoService: TodoService, mockBackend: MockBackend) => {
+    fakeAsync(inject([TodoService, MockBackend], (todoService: TodoService, mockBackend: MockBackend) => {
       let res: Response;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('http://localhost:3000/todos');
@@ -43,7 +45,7 @@ describe('Todo Service', () => {
   );
 
   xit('should have a method to post a new Todo and then return all todos',
-    inject([TodoService, MockBackend], fakeAsync((todoService: TodoService, mockBackend: MockBackend) => {
+    inject([TodoService, MockBackend, Http], async((todoService: TodoService, mockBackend: MockBackend, _http: Http) => {
       let res: Response;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('http://localhost:3000/todos');
