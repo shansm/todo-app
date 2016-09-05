@@ -9,7 +9,7 @@ describe('Tech Stack Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [TechStackService]
-    });;
+    });
   });
 
   it(`technologies should be a function
