@@ -1,25 +1,26 @@
 import {
-  inject,
-  addProviders
+  async,
+  TestBed
 } from '@angular/core/testing';
-import { BaseRequestOptions, Http } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { SharedModule } from './shared/shared.modules';
 import { AppComponent } from './app.component';
+import { routing } from './app.routes';
+import { MockBackend } from '@angular/http/testing';
 
-describe('App', () => {
+describe('AppComponent', () => {
   beforeEach(() => {
-    addProviders([
-      AppComponent,
-      BaseRequestOptions,
-      MockBackend,
-      {
-        provide: Http,
-        deps: [MockBackend, BaseRequestOptions],
-        useFactory: function useFactory(backend, defaultOptions) {
-          return new Http(backend, defaultOptions);
-        }
-      }
-    ]);
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
+      imports:      [SharedModule, routing, HttpModule, JsonpModule],
+    });;
   });
+
+  it('should create the App compnent', async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiledComponent = fixture.debugElement.nativeElement;
+    expect(compiledComponent).toBeDefined();
+  }));
 
 });
