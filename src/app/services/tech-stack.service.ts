@@ -7,7 +7,7 @@ export class TechStackService {
       AngularJS 2 (RC5),
       Webpack,
       TypeScript,
-      Bootstrap 4,
+      Bootstrap,
       Jasmine,
       Karma,
       Istanbul,
