@@ -25,7 +25,7 @@ import { Observable } from 'rxjs/Rx';
         </div>
       </div>
       <div class="row">
-        <p>This app was built using {{_techStack.technologies}}</p>
+        <p>This app was built using {{techStack}}</p>
       </div>
     </div>
   `,
@@ -37,11 +37,13 @@ export class TodoComponent implements OnInit {
   submitted: boolean = false;
   active: boolean = true;
   todos: Array<TodoModel> = [];
+  techStack: String = '';
 
   constructor(private _techStack: TechStackService, private _todoService: TodoService) {
   }
 
   ngOnInit() {
+    this.techStack = this._techStack.technologies();
     this._todoService.getTodos().subscribe(
       data => {
         this.todos = data;
