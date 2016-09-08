@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { TodoModel } from '../models/';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class TodoService {

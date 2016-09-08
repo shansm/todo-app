@@ -26,7 +26,7 @@ describe('TodoService', () => {
     expect(todoService.baseURL).toBe('http://localhost:3000/todos');
   }));
 
-  xit('should have a method to get all Todos',
+  it('should have a method to get all Todos',
     fakeAsync(inject([TodoService, MockBackend], (todoService: TodoService, mockBackend: MockBackend) => {
       let res: Response;
       mockBackend.connections.subscribe(c => {
@@ -44,8 +44,8 @@ describe('TodoService', () => {
     }))
   );
 
-  xit('should have a method to post a new Todo and then return all todos',
-    inject([TodoService, MockBackend, Http], async((todoService: TodoService, mockBackend: MockBackend, _http: Http) => {
+  it('should have a method to post a new Todo and then return all todos',
+    fakeAsync(inject([TodoService, MockBackend], (todoService: TodoService, mockBackend: MockBackend) => {
       let res: Response;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('http://localhost:3000/todos');
@@ -62,7 +62,7 @@ describe('TodoService', () => {
     }))
   );
 
-  xit('should have a method to delete a Todo and then return all todos',
+  it('should have a method to delete a Todo and then return all todos',
     inject([TodoService, MockBackend], fakeAsync((todoService: TodoService, mockBackend: MockBackend) => {
       let res: Response;
       mockBackend.connections.subscribe(c => {
@@ -73,7 +73,7 @@ describe('TodoService', () => {
         res = response;
       });
       tick();
-      expect(res).toBe(true);
+      expect(res).toEqual([]);
     }))
   );
 });
