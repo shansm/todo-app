@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class TechStackService {
   technologies() {
     return `
-      AngularJS 2 (RC5),
+      AngularJS 2 (RC6),
       Webpack,
       TypeScript,
       Bootstrap 4,

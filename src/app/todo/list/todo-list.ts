@@ -19,15 +19,12 @@ import { TodoModel } from '../../models';
   `,
 
 })
-export class ListOfTodosComponent implements OnInit {
+export class ListOfTodosComponent {
 
   strikeThru: boolean = false;
   @Input() todos: Array<TodoModel>;
 
   constructor(private _todoService: TodoService) {
-  }
-
-  ngOnInit() {
   }
 
   deleteTodo(id, i) {
