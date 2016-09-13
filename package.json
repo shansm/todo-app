@@ -23,21 +23,21 @@
     "postinstall": "npm run webdriver-update && typings install"
   },
   "dependencies": {
-    "@angular/common": "2.0.0-rc.6",
-    "@angular/compiler": "2.0.0-rc.6",
-    "@angular/core": "2.0.0-rc.6",
-    "@angular/forms": "2.0.0-rc.6",
-    "@angular/http": "2.0.0-rc.6",
-    "@angular/platform-browser": "2.0.0-rc.6",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.6",
+    "@angular/common": "2.0.0-rc.7",
+    "@angular/compiler": "2.0.0-rc.7",
+    "@angular/core": "2.0.0-rc.7",
+    "@angular/forms": "2.0.0-rc.7",
+    "@angular/http": "2.0.0-rc.7",
+    "@angular/platform-browser": "2.0.0-rc.7",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.7",
     "@angular/router": "3.0.0-rc.2",
     "@angular/router-deprecated": "2.0.0-rc.2",
     "angular2-in-memory-web-api": "0.0.15",
     "bootstrap": "^4.0.0-alpha.4",
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.11",
-    "zone.js": "^0.6.15"
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.21"
   },
   "devDependencies": {
     "angular2-template-loader": "^0.4.0",
