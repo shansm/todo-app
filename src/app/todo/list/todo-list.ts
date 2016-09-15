@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TodoService } from '../../services';
 import { TodoModel } from '../../models';
 
@@ -27,7 +27,7 @@ export class ListOfTodosComponent {
   constructor(private _todoService: TodoService) {
   }
 
-  deleteTodo(id, i) {
+  deleteTodo(id: number, i: number) {
     this.todos[i].completed = true;
     this._todoService.deleteTodo(id).subscribe(
       data => {
